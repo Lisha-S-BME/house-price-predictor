@@ -6,11 +6,11 @@ An end-to-end machine learning project that predicts house prices with **93.39% 
 
 ---
 
-## 📌 **What is This Project?**
+## 📌 What is This Project?
 
 This project solves a common real-world problem: **estimating the fair market value of a property** based on its features. Instead of guessing or using outdated comparisons, this model provides data-driven price predictions.
 
-For **real estate businesses**, this means:
+For real estate businesses, this means:
 - Confident pricing decisions
 - Reduced time on market
 - Competitive advantage
@@ -19,35 +19,35 @@ This is a **complete data science pipeline** from raw data to production deploym
 
 ---
 
-## 🛠️ **Technology Stack**
+## 🛠️ Technology Stack
 
 | Category | Tools & Libraries |
 |----------|-------------------|
-| **Programming Language** | Python 3.x |
-| **Data Processing** | Pandas, NumPy |
-| **Visualization** | Matplotlib, Seaborn |
-| **Machine Learning** | Scikit-learn (Linear Regression, Random Forest, XGBoost) |
-| **Model Serialization** | Joblib |
-| **Web Framework** | Streamlit |
-| **Deployment** | Streamlit Cloud |
-| **Version Control** | GitHub |
+| Programming Language | Python 3.x |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn (Linear Regression, Random Forest, XGBoost) |
+| Model Serialization | Joblib |
+| Web Framework | Streamlit |
+| Deployment | Streamlit Cloud |
+| Version Control | GitHub |
 
 ---
 
-## 🚀 **How It Works**
+## 🚀 How It Works
 
-### 1. **Data Loading & Cleaning**
+### 1. Data Loading & Cleaning
 - Loaded 545 property records with 13 features
 - No missing values found
 - Converted categorical variables using one-hot encoding
 - Engineered new features: `area_per_room`, `price_per_sqft`
 
-### 2. **Exploratory Data Analysis**
+### 2. Exploratory Data Analysis
 - Visualized price distribution
 - Created correlation heatmap to identify key features
 - Analyzed feature relationships with target variable
 
-### 3. **Model Building**
+### 3. Model Building
 Trained and compared multiple models:
 
 | Model | R² Score | MAE | RMSE |
@@ -59,7 +59,7 @@ Trained and compared multiple models:
 
 **Best Model:** Random Forest
 
-### 4. **Feature Importance Analysis**
+### 4. Feature Importance Analysis
 
 | Feature | Importance |
 |---------|------------|
@@ -70,23 +70,36 @@ Trained and compared multiple models:
 
 **Key Insight:** Property area alone predicts more than half of the price variation!
 
-### 5. **Deployment**
+### 5. Deployment
 The trained model is saved as `model.joblib` and served through a Streamlit web app with interactive sliders.
 
 ---
 
-## 🧠 **Challenges Faced & Solutions**
+## 💰 Currency Support
+
+This project displays predictions in **both** currencies:
+
+| Currency | Symbol | Conversion |
+|----------|--------|------------|
+| US Dollar | $ | Original dataset currency |
+| Indian Rupee | ₹ | For local context ($1 ≈ ₹83) |
+
+**Example:** Average house price **$4.77M** ≈ **₹39.6 Crores**
+
+---
+
+## 🧠 Challenges Faced & Solutions
 
 | Challenge | Solution |
 |-----------|----------|
-| **Categorical Data Encoding** | Used `pd.get_dummies()` for one-hot encoding |
-| **Feature Mismatch in App** | Aligned all 15 features in the prediction pipeline |
-| **Pickle Version Conflict** | Switched from `pickle` to `joblib` for better cross-version compatibility |
-| **Cloud Deployment Errors** | Added `requirements.txt` to ensure correct library versions |
-| **Missing `price_per_sqft` in App** | Added as a placeholder with value 0 during prediction |
+| Categorical Data Encoding | Used `pd.get_dummies()` for one-hot encoding |
+| Feature Mismatch in App | Aligned all 15 features in the prediction pipeline |
+| Pickle Version Conflict | Switched from `pickle` to `joblib` for better cross-version compatibility |
+| Cloud Deployment Errors | Added `requirements.txt` to ensure correct library versions |
+| Missing `price_per_sqft` in App | Added as a placeholder with value 0 during prediction |
 
 ### Code Breaking in `app.py`
-**Problem:** The model expected 15 features, but only 14 were passed.
+**Problem:** The model expected 15 features, but only 14 were passed.  
 **Fix:** Added `price_per_sqft = 0` as the 15th feature in the input array.
 
 ```python
