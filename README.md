@@ -4,6 +4,8 @@ An end-to-end machine learning project that predicts house prices with **93.39% 
 
 **Live Demo:** [Click Here to Try the App](https://house-price-predictor-lisha-s-bme.streamlit.app)
 
+**Google Colab Notebook:** [Click Here to View the Code](https://colab.research.google.com/drive/1HttFB7OHKVEd_XwupRgn8EseWLqquctg?usp=sharing)
+
 ---
 
 ## 📌 What is This Project?
@@ -23,14 +25,27 @@ This is a **complete data science pipeline** from raw data to production deploym
 
 | Category | Tools & Libraries |
 |----------|-------------------|
-| Programming Language | Python 3.x |
-| Data Processing | Pandas, NumPy |
-| Visualization | Matplotlib, Seaborn |
-| Machine Learning | Scikit-learn (Linear Regression, Random Forest, XGBoost) |
-| Model Serialization | Joblib |
-| Web Framework | Streamlit |
-| Deployment | Streamlit Cloud |
-| Version Control | GitHub |
+| **Programming Language** | Python 3.x |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Matplotlib, Seaborn |
+| **Machine Learning** | Scikit-learn (Linear Regression, Random Forest, XGBoost) |
+| **Model Serialization** | Joblib |
+| **Web Framework** | Streamlit |
+| **Deployment** | Streamlit Cloud |
+| **Version Control** | GitHub |
+
+---
+
+## 💰 Currency Support
+
+This project displays predictions in **both** currencies:
+
+| Currency | Symbol | Conversion |
+|----------|--------|------------|
+| US Dollar | $ | Original dataset currency |
+| Indian Rupee | ₹ | For local context ($1 ≈ ₹83) |
+
+**Example:** The average house price of **$4.77M** is approximately **₹39.6 Crores**.
 
 ---
 
@@ -75,28 +90,15 @@ The trained model is saved as `model.joblib` and served through a Streamlit web 
 
 ---
 
-## 💰 Currency Support
-
-This project displays predictions in **both** currencies:
-
-| Currency | Symbol | Conversion |
-|----------|--------|------------|
-| US Dollar | $ | Original dataset currency |
-| Indian Rupee | ₹ | For local context ($1 ≈ ₹83) |
-
-**Example:** Average house price **$4.77M** ≈ **₹39.6 Crores**
-
----
-
 ## 🧠 Challenges Faced & Solutions
 
 | Challenge | Solution |
 |-----------|----------|
-| Categorical Data Encoding | Used `pd.get_dummies()` for one-hot encoding |
-| Feature Mismatch in App | Aligned all 15 features in the prediction pipeline |
-| Pickle Version Conflict | Switched from `pickle` to `joblib` for better cross-version compatibility |
-| Cloud Deployment Errors | Added `requirements.txt` to ensure correct library versions |
-| Missing `price_per_sqft` in App | Added as a placeholder with value 0 during prediction |
+| **Categorical Data Encoding** | Used `pd.get_dummies()` for one-hot encoding |
+| **Feature Mismatch in App** | Aligned all 15 features in the prediction pipeline |
+| **Pickle Version Conflict** | Switched from `pickle` to `joblib` for better cross-version compatibility |
+| **Cloud Deployment Errors** | Added `requirements.txt` to ensure correct library versions |
+| **Missing `price_per_sqft` in App** | Added as a placeholder with value 0 during prediction |
 
 ### Code Breaking in `app.py`
 **Problem:** The model expected 15 features, but only 14 were passed.  
